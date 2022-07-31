@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Sitio web Django {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+  <body>
+
+    <header>
+      <div id="logotipo">
+        <!--logo django-->
+        <img src="{% static 'images/logo.png' %}" alt="">
+        <h1>Stitio web Django</h1>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="{% url 'hola_mundo' %}">Hola mundo</a>
+        </li>
+        <li>
+          <a href="{% url 'pagina' %}">Pagina</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="barra">
+      <span class="esquina-izquierda"></span>
+      <span class="relleno-barra"></span>
+      <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+
+      <div class="box">
+        {% block content %}
+
+
+        {% endblock %}
+
+      </div>
+
+    </div>
+    <footer>
+        Master en python &copy; Cristian Vargas - {% now "Y" %}
+    </footer>
+  </body>
+</html>

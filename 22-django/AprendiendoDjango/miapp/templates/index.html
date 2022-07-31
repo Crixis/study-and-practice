@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<!--esto es un comentario en html-->
+
+{% comment "Nota para el comentario" %}
+aca tambien se puede comentar
+{% endcomment %}
+
+<h1 class="title">Inicio</h1>
+
+<p>{{mi_variable}}</p>
+
+{% if nombre%}
+    <p>{{nombre}}</p>
+{% else %}
+    <strong>El nombre no existe</strong>
+{% endif %}
+
+<h3>Listado de lenguajes de programacion</h3>
+<ul>
+    {% for lenguaje in lenguajes %}
+        <li>{{lenguaje}}</li>
+    {% empty %}
+        <p>No hay leguajes que mostrar</p>
+    {% endfor %}
+</ul>
+
+<h2>Estoy aprendiendo Django</h2>
+
+{% endblock %}

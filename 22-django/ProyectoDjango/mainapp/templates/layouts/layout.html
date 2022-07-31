@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+        | Cristian 
+    </title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    
+    <!--cabecera de la pagina-->
+    <header>
+        <div id="logotipo">
+            <!--logo django-->
+            <img src="{% static 'images/logo.png' %}" >
+            <h1>Proyecto con Django</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}">Sobre nosotros</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+
+        <div class="box">
+            {% block content %}
+                <!--codigo que viene de templates-->
+                <strong>Contenido del bloque original</strong>
+            {% endblock %}
+        </div>
+
+    </div>
+
+    <footer>
+        Proyecto Django &copy; Cristian Vargas - 2022
+    </footer>
+</body>
+
+</html>
